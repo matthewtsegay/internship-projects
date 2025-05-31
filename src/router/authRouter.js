@@ -1,0 +1,29 @@
+export default[
+    {
+        path:'/',
+        name:'login',
+        component:()=>import('../views/auth/pages/login.vue')
+    },
+    {
+        path:'/signup',
+        name:'signup',
+        component:()=>import('../views/auth/pages/Register.vue')
+    },
+    { 
+        path:'/ForgetPassword', 
+        name:'ForgetPassword',
+        component:()=>import('../views/auth/pages/ForgetPassword.vue'),
+        //meta:{requireAuth:true}
+    },
+    {
+        path:'/EnterCode',
+        name:'EnterCode',
+        component:()=>import('../views/auth/pages/EnterCode.vue'),
+        
+    },
+    {
+        path:'/ResetPassword',
+        name:'ResetPassword',
+        component:()=>import('../views/auth/pages/ResetPassword.vue'),
+    },
+]

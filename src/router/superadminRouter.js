@@ -1,0 +1,38 @@
+
+export default [
+    {
+        path:'/superadmin',
+        name:'supersdmin',
+        component:()=>import('../views/superAdmin/pages/SuperAdminDashboard.vue'),
+        meta:{
+            requireAuth:true,
+            roles:['superadmin']
+        }
+    },
+    {
+        path:'/superadmin/users',
+        name:'allUsers',
+        component:()=>import('../views/superAdmin/pages/AllUsers.vue'),
+        meta:{
+            requireAuth:true,
+            roles:['superadmin']
+        }
+    },
+     {
+        path:'/superadmin/reports',
+        name:'FullReports',
+        component:()=>import('../views/superAdmin/pages/FullReports.vue'),
+        meta:{
+            requireAuth:true,
+            roles:['superadmin']
+        }
+    },
+    {
+        path:'/superadmin/settings',
+        name:'settings',
+        component:()=>import('../views/superAdmin/pages/SystemSettings.vue'),
+        meta:{
+            requireAuth:true,
+            roles:['superadmin']}
+    }
+]
