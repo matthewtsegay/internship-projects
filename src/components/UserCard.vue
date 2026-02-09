@@ -1,23 +1,34 @@
 <template>
   <div
-    class="w-full max-w-xs h-64 p-5 bg-green-200 border border-green-500 rounded-lg flex flex-col justify-between 
-           hover:bg-green-300 hover:shadow-lg hover:shadow-green-500 hover:scale-95 transition-all duration-300 ease-in-out"
+    class="group w-full h-auto p-6 bg-emerald-50 border border-gray-100 rounded-2xl flex flex-col justify-between 
+           shadow-sm hover:shadow-xl hover:shadow-emerald-100/50 hover:-translate-y-1 transition-all duration-300 ease-out"
   >
-    <div>
-      <h2 class="text-lg font-bold text-green-600 mb-1">{{ user.name }}</h2>
-      <p class="text-gray-700">{{ user.email }}</p>
-      <p class="text-sm font-bold text-gray-400 mt-1">Source: {{ user.source }}</p>
+    <div class="space-y-3">
+      <div class="flex justify-between items-start">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 font-bold text-lg">
+              {{ user.name.charAt(0).toUpperCase() }}
+          </div>
+          <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full uppercase tracking-wider">
+              {{ user.source }}
+          </span>
+      </div>
+      
+      <div>
+        <h2 class="text-xl font-bold text-gray-800 tracking-tight group-hover:text-emerald-700 transition-colors">{{ user.name }}</h2>
+        <p class="text-gray-500 text-sm font-medium mt-1 truncate">{{ user.email }}</p>
+        <p class="text-gray-400 text-xs mt-2">{{ new Date(user.date).toLocaleDateString() }}</p>
+      </div>
     </div>
 
-    <div class="mt-4 flex justify-center gap-3">
+    <div class="mt-6 flex gap-3 pt-4 border-t border-gray-50 opacity-80 group-hover:opacity-100 transition-opacity">
       <button
-        class="border border-red-600 bg-red-500 text-sm px-4 py-2 rounded hover:bg-red-600 text-white transition"
+        class="flex-1 bg-white border border-red-200 text-red-500 hover:bg-red-50 hover:border-red-300 text-sm px-4 py-2 rounded-lg font-semibold transition-all duration-200"
         @click="$emit('delete', user.id)"
       >
         Delete
       </button>
       <button
-        class="border border-orange-500 text-orange-500 text-sm px-4 py-2 rounded hover:bg-orange-500 hover:text-white transition"
+        class="flex-1 bg-emerald-600 text-white hover:bg-emerald-700 text-sm px-4 py-2 rounded-lg shadow-sm hover:shadow-md font-semibold transition-all duration-200"
         @click="$emit('block', user.id)"
       >
         Block
